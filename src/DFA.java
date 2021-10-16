@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class DFA {
 
     /**
@@ -69,12 +71,15 @@ public class DFA {
 
     /** State for going step by step */
     public States currentState = States.S;
+    /** Stack of States meant for back tracing */
+    public Stack<States> statesStack = new Stack<>();
 
     /**
      * Sets the currentState to beginning state
      */
     public void restart() {
         this.currentState = States.S;
+        this.statesStack = new Stack<>();
     }
 
     /**
@@ -83,23 +88,22 @@ public class DFA {
      * @return true if after transition the state is accepting, false otherwise
      */
     public boolean accept(char symbol) {
+        this.statesStack.push(this.currentState);
         this.currentState = this.currentState.transition(symbol);
         return this.currentState.accept;
     }
 
     /**
-     * Checks input string and decides, if it's accepted or not
-     * @param string input string
-     * @return true if accepted, false otherwise
+     * Let's the user go backwards in the inputting steps
+     * @return true if after stepping back the state is accepting, false otherwise
      */
-    public boolean accept(String string) {
-        States state = States.S;
-
-        for (int i = 0; i < string.length(); i++) {
-            state = state.transition(string.charAt(i));
+    public boolean stepBack() {
+        if(statesStack.isEmpty()) {
+            System.out.println("Cannot go back any further...");
+            return States.S.accept;
         }
-
-        return state.accept;
+        this.currentState = statesStack.pop();
+        return this.currentState.accept;
     }
 
 }
