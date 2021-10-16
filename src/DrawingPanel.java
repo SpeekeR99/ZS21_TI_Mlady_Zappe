@@ -1,5 +1,8 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 /**
  * Drawing part of the window GUI
@@ -8,6 +11,8 @@ public class DrawingPanel extends JPanel {
 
     /** array of states (Nodes) on GUI */
     public Node[] nodes;
+    /** background image with arrows and symbols */
+    BufferedImage background;
 
     public DrawingPanel() {
         int width = 1366;
@@ -24,8 +29,11 @@ public class DrawingPanel extends JPanel {
                 new Node(4 * width / 5 - temp.size / 2, height / 5 - temp.size / 2, "C"),        // 6 = C
                 new Node(4 * width / 5 - temp.size / 2, 3 * height / 5 - temp.size / 2, "C1"),   // 7 = C1
                 new Node(4 * width / 5 - temp.size / 2, 4 * height / 5 - temp.size / 2, "C2"),   // 8 = C2
-                new Node(3 * width / 5 - temp.size / 2, 4 * height / 5 - temp.size / 2, "ERR")   // 9 = ERR
+                new Node(3 * width / 5 - temp.size / 2, (int) (4.5 * height / 5 - temp.size / 2), "ERR")   // 9 = ERR
         };
+        try {
+            background = ImageIO.read(new File("background.png"));
+        } catch(Exception ignored) {}
     }
 
     /**
@@ -37,6 +45,7 @@ public class DrawingPanel extends JPanel {
         super.paint(g);
         // better Graphics
         Graphics2D g2 = (Graphics2D) g;
+        g2.drawImage(background, 0, 0, null);
         for(Node n : nodes) {
             n.draw(g2);
         }
