@@ -1,11 +1,15 @@
 import java.util.Stack;
 
+/**
+ * Class represents Deterministic Finite Automata, which accepts symbols a b c
+ * DFA can be restarted and has an option of tracing back previous states
+ */
 public class DFA {
 
     /**
      * Enum of possible states
      */
-    private enum States {
+    public enum States {
         S(false),
         B(false),
         B1(true),

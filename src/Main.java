@@ -6,6 +6,7 @@ public class Main {
         DFA dfa = new DFA();
         Scanner sc = new Scanner(System.in);
         System.out.println("Start inputing symbols | Q (quit), R (restart), B (step back)");
+
         while(true) {
             String input = sc.next();
             char symbol = input.charAt(0);
@@ -24,6 +25,7 @@ public class Main {
             }
             System.out.println("DFA is in accepting state: " + dfa.accept(symbol));
         }
+
     }
 
 }
