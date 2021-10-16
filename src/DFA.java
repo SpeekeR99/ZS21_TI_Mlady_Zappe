@@ -67,6 +67,26 @@ public class DFA {
 
     }
 
+    /** State for going step by step */
+    public States currentState = States.S;
+
+    /**
+     * Sets the currentState to beginning state
+     */
+    public void restart() {
+        this.currentState = States.S;
+    }
+
+    /**
+     * Checks input symbol and decides, if the state after transition is accepting or not
+     * @param symbol input symbol
+     * @return true if after transition the state is accepting, false otherwise
+     */
+    public boolean accept(char symbol) {
+        this.currentState = this.currentState.transition(symbol);
+        return this.currentState.accept;
+    }
+
     /**
      * Checks input string and decides, if it's accepted or not
      * @param string input string
