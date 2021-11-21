@@ -1,11 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Main class
+ */
 public class Main {
 
     /** Window */
     public static JFrame window;
 
+    /**
+     * Entry point, just setsup the window
+     * @param args arguments from cmd, unused
+     */
     public static void main(String[] args) {
         setupWindow();
     }

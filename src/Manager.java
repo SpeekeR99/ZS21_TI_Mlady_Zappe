@@ -3,6 +3,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 
+/**
+ * Originally this class was just the input panel and buttons
+ * But it turned out this class controls the whole app
+ */
 public class Manager extends JPanel {
 
     /** text input from user */

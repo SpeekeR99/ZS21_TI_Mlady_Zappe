@@ -66,7 +66,6 @@ public class DFA {
                 case 'c':
                     return this.c;
                 default:
-                    System.out.println("Symbol " + symbol + " is not in the alphabet!");
                     return ERR;
             }
         }
