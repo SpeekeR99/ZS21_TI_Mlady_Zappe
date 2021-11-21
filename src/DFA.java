@@ -103,7 +103,6 @@ public class DFA {
      */
     public boolean stepBack() {
         if(statesStack.isEmpty()) {
-            System.out.println("Cannot go back any further...");
             return States.S.accept;
         }
         this.currentState = statesStack.pop();

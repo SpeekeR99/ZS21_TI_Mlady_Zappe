@@ -13,6 +13,8 @@ public class DrawingPanel extends JPanel {
     public Node[] nodes;
     /** background image with arrows and symbols */
     BufferedImage background;
+    /** Whether or not the input string is accepted */
+    boolean isAccepted;
 
     public DrawingPanel() {
         int width = 1366;
@@ -49,6 +51,15 @@ public class DrawingPanel extends JPanel {
         for(Node n : nodes) {
             n.draw(g2);
         }
+        String prompt;
+        if (isAccepted) {
+            prompt = "Řetězec je akceptován.";
+            g2.setColor(new Color(0x22AB13));
+        } else {
+            prompt = "Řetězec není akceptován.";
+            g2.setColor(Color.RED);
+        }
+        g2.drawString(prompt, 50, this.getHeight() - 20);
     }
 
 
