@@ -33,6 +33,11 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setResizable(false);
         window.setVisible(true);
+        JOptionPane.showMessageDialog(window, "Tento program znázorňuje výpočty, kterými může být " +
+                "zpracován vstupní řetězec nedeterministickým konečným automatem.\nZvýrazněné stavy znázorňují " +
+                "množinu stavů, v jednom z nichž se v dané fázi zpracování řetězce automat bude nacházet (ale " +
+                "nelze určit ve kterém).\nŘetězec je automatem akceptován, může-li být po zpracování řetězce v " +
+                "koncovém stavu, tedy je-li po zpracování řetězce zvýrazněn alespoň jeden koncový stav.", "Informace", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
