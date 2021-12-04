@@ -44,6 +44,19 @@ public class Manager extends JPanel {
     }
 
     /**
+     * Copyright in the right bottom corner
+     * @param g Graphics context
+     */
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        Graphics2D g2 = (Graphics2D) g;
+        FontMetrics fm = g2.getFontMetrics();
+        String s = "© Dominik Zappe, Jakub Mladý, 2021";
+        g2.drawString(s, this.getWidth() - fm.stringWidth(s), this.getHeight() - fm.getHeight() / 2);
+    }
+
+    /**
      * Sets up the basic buttons
      */
     private void createButtons() {
